@@ -43,3 +43,6 @@
 - to-do | Exam Rank 06
 
 ## Progress Towards 42 core exams: 	0/5
+
+![alt text](https://github.com/macosta-42/42/blob/main/Screenshot%202021-03-10%20at%2010.27.53.png?raw=true)
+
