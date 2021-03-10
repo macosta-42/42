@@ -9,3 +9,6 @@
 - 100% | ft_server
 
 - 100% | cub3d
+
+- 100% | libasm
+
