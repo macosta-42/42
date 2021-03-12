@@ -14,9 +14,9 @@
 
 - 100% | libasm
 
-- Pending | ft_services
+- 100% | ft_services
 
-- to-do | push_swap
+- pending | push_swap
 
 - to-do | minishell
 
@@ -30,7 +30,7 @@
 
 - to-do | ft_transcendence
 
-## Progress Towards 42 core cursus:	6/15
+## Progress Towards 42 core cursus:	7/15
 
 - Pending | Exam Rank 02
 

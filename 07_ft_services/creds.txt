@@ -1,0 +1,11 @@
+wordpress:
+macosta = Password123!
+
+phpmyadmin:
+admin = admin
+
+grafana:
+admin = admin
+
+ftps:
+ftp_user = ftp_password

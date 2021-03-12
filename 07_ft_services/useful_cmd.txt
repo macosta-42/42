@@ -1,0 +1,3 @@
+kubectl get pods
+
+kubectl get service --all-namespaces

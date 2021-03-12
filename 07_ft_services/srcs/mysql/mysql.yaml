@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+  labels:
+    app: mysql
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: mysql
+    labels:
+        app: mysql
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: mysql
+    template:
+        metadata:
+            labels:
+                app: mysql
+        spec:
+            containers:
+            - name: mysql
+              imagePullPolicy: Never
+              image: mysql:latest
+              ports:
+              - containerPort: 3306
+              env:
+              - name: MYSQL_ROOT_PASSWORD
+                value: root
+              - name: MYSQL_TCP_PORT
+                value: "3306"
+              volumeMounts:
+              - name: mysql-persistent-storage
+                mountPath: /var/lib/mysql
+              livenessProbe:
+                  tcpSocket:
+                    port: 3306
+                  initialDelaySeconds: 30
+                  periodSeconds: 10
+            volumes:
+            - name: mysql-persistent-storage
+              persistentVolumeClaim:
+                claimName: mysql-pv-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-mysql
+  annotations:
+    metallb.universe.tf/allow-shared-ip: shared
+spec:
+  selector:
+    app: mysql
+  type: ClusterIP
+  ports:
+    - name: https
+      protocol: TCP
+      port: 3306
+      targetPort: 3306

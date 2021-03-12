@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: phpmyadmin
+    labels:
+        app: phpmyadmin
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: phpmyadmin
+    template:
+        metadata:
+            labels:
+                app: phpmyadmin
+        spec:
+            containers:
+            - name: phpmyadmin
+              imagePullPolicy: Never
+              image: phpmyadmin:latest
+              ports:
+                - containerPort: 5000
+              env:
+              - name: PMA_HOST
+                value: db
+              - name: PMA_PORT
+                value: "3306"
+              - name: MYSQL_ROOT_PASSWORD
+                value: root
+              livenessProbe:
+                httpGet:
+                  path: ./phpmyadmin/
+                  port: 5000
+                  scheme: HTTPS
+                initialDelaySeconds: 30
+                periodSeconds: 3
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-phpmyadmin
+  annotations:
+      metallb.universe.tf/allow-shared-ip: shared
+spec:
+  selector:
+    app: phpmyadmin
+  type: LoadBalancer
+  ports:
+    - name: https
+      protocol: TCP
+      port: 5000
+      targetPort: 5000

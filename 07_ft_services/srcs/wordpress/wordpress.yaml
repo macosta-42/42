@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: wordpress
+    labels:
+        app: wordpress
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: wordpress
+    template:
+        metadata:
+            labels:
+                app: wordpress
+        spec:
+            containers:
+            - name: wordpress
+              imagePullPolicy: Never
+              image: wordpress:latest
+              ports:
+              - containerPort: 5050
+              livenessProbe:
+                httpGet:
+                  path: ./wordpress/
+                  port: 5050
+                  scheme: HTTPS
+                initialDelaySeconds: 60
+                periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-wordpress
+  annotations:
+      metallb.universe.tf/allow-shared-ip: shared
+spec:
+  selector:
+    app: wordpress
+  type: LoadBalancer
+  ports:
+    - name: https
+      protocol: TCP
+      port: 5050
+      targetPort: 5050
