@@ -6,7 +6,7 @@
 /*   By: macosta <macosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 17:42:41 by macosta           #+#    #+#             */
-/*   Updated: 2020/05/06 10:22:49 by macosta          ###   ########.fr       */
+/*   Updated: 2021/05/31 16:55:47 by macosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	ft_itoa_count(int n)
 
 static void	ft_itoa_record(char *str, int n, int *ptr)
 {
-	unsigned int nb;
+	unsigned int	nb;
 
 	nb = n;
 	if (n < 0)
@@ -55,7 +55,7 @@ static void	ft_itoa_record(char *str, int n, int *ptr)
 	}
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	int		i;
@@ -63,7 +63,7 @@ char		*ft_itoa(int n)
 
 	ptr = &i;
 	i = 0;
-	str = (char*)malloc(sizeof(char) * (ft_itoa_count(n) + 1));
+	str = (char *)malloc(sizeof(char) * (ft_itoa_count(n) + 1));
 	if (str)
 	{
 		ft_itoa_record(str, n, ptr);

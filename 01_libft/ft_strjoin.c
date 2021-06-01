@@ -6,7 +6,7 @@
 /*   By: macosta <macosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 17:10:59 by macosta           #+#    #+#             */
-/*   Updated: 2020/05/05 15:49:00 by macosta          ###   ########.fr       */
+/*   Updated: 2021/05/31 18:00:08 by macosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	len = ft_strlen(s1);
 	len2 = ft_strlen(s2);
-	if (!(str = malloc(sizeof(char) * (len + len2 + 1))))
+	str = malloc(sizeof(char) * (len + len2 + 1));
+	if (str == NULL)
 		return (NULL);
 	ft_memset(str, 0, (len + len2 + 1));
 	ft_memcpy(str, s1, len);

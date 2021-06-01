@@ -6,7 +6,7 @@
 /*   By: macosta <macosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 10:52:58 by macosta           #+#    #+#             */
-/*   Updated: 2020/05/05 11:37:21 by macosta          ###   ########.fr       */
+/*   Updated: 2021/05/31 18:03:11 by macosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size = ft_strlen(s1);
 	while (size && ft_strchr(set, s1[size]))
 		size--;
-	new = ft_substr((char*)s1, 0, size + 1);
+	new = ft_substr((char *)s1, 0, size + 1);
 	return (new);
 }

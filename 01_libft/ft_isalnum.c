@@ -6,7 +6,7 @@
 /*   By: macosta <macosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 23:18:18 by macosta           #+#    #+#             */
-/*   Updated: 2020/04/28 23:55:02 by macosta          ###   ########.fr       */
+/*   Updated: 2021/05/31 16:42:37 by macosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ft_isalnum(int c)
 {
-	return (ft_isalpha(c) || ft_isdigit(c) ? 1 : 0);
+	return (ft_ternary_i(ft_isalpha(c) || ft_isdigit(c), 1, 0));
 }

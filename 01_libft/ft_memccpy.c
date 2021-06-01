@@ -6,7 +6,7 @@
 /*   By: macosta <macosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 11:03:15 by macosta           #+#    #+#             */
-/*   Updated: 2020/05/03 16:43:15 by macosta          ###   ########.fr       */
+/*   Updated: 2021/05/31 17:19:28 by macosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	unsigned char	*strdst;
 	unsigned char	*strsrc;
 
-	strdst = (unsigned char*)dst;
-	strsrc = (unsigned char*)src;
+	strdst = (unsigned char *)dst;
+	strsrc = (unsigned char *)src;
 	i = 0;
 	while (i < n)
 	{

@@ -6,7 +6,7 @@
 /*   By: macosta <macosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 23:34:45 by macosta           #+#    #+#             */
-/*   Updated: 2020/05/07 17:30:47 by macosta          ###   ########.fr       */
+/*   Updated: 2021/06/01 10:18:43 by macosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -41,8 +41,8 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-char				*ft_strnstr
-					(const char *haystack, const char *needle, size_t len);
+char				*ft_strnstr(const char *haystack,
+						const char *needle, size_t len);
 char				**ft_split(char const *s, char c);
 void				ft_bzero(void *s, size_t n);
 void				ft_putchar_fd(char c, int fd);
@@ -65,7 +65,12 @@ size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstnew(void *content);
-t_list				*ft_lstmap
-					(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list				*ft_lstmap(t_list *lst,
+						void *(*f)(void *), void (*del)(void *));
 
+void				*ft_ternary(int test, void *a, void *b);
+int					ft_ternary_i(int test, int a, int b);
+long				ft_ternary_l(int test, long a, long b);
+unsigned long		ft_ternary_ul(int test, unsigned long a, unsigned long b);
+double				ft_ternary_d(int test, double a, double b);
 #endif

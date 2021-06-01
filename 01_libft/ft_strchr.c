@@ -6,7 +6,7 @@
 /*   By: macosta <macosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 14:19:39 by macosta           #+#    #+#             */
-/*   Updated: 2020/05/04 14:01:55 by macosta          ###   ########.fr       */
+/*   Updated: 2021/05/31 17:46:19 by macosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ char	*ft_strchr(const char *s, int c)
 	while ((*s) && (*s) != c)
 		s++;
 	if ((*s) == c)
-		return ((char*)s);
+		return ((char *)s);
 	return (NULL);
 }
